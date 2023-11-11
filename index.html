@@ -8,7 +8,28 @@
 </head>
 
 <body>
-    <header data-bs-theme="dark">
+    <div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
+        <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+            <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+                <header class="modal__header">
+                    <h2 class="modal__title" id="modal-1-title">
+                        Micromodal
+                    </h2>
+                    <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+                </header>
+                <main class="modal__content" id="modal-1-content">
+                    <p>
+                        Try hitting the <code>tab</code> key and notice how the focus stays within the modal itself. Also, <code>esc</code> to close modal.
+                    </p>
+                </main>
+                <footer class="modal__footer">
+                    <button class="modal__btn modal__btn-primary">Continue</button>
+                    <button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">Close</button>
+                </footer>
+            </div>
+        </div>
+    </div>
+    <header class="main" data-bs-theme="dark">
         <div class="collapse text-bg-dark" id="navbarHeader">
             <div class="container">
                 <div class="row">
@@ -65,7 +86,7 @@
         <div class="album py-5 bg-body-tertiary">
             <div class="container">
 
-                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 g-3">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                     <div class="col">
                         <div class="card card-mg shadow-sm">
                             <img class="card-img-top" src="/img/cq.png" width="100%" height="225" />
@@ -77,9 +98,9 @@
                                 </p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Play Store</button>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Online</button>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Github</button>
+                                        <button type="button" class="js-store game-data-crazed btn btn-sm btn-outline-secondary">Play Store</button>
+                                        <button type="button" class="js-play game-data-crazed btn btn-sm btn-outline-secondary">Online</button>
+                                        <button type="button" class="js-source game-data-crazed btn btn-sm btn-outline-secondary">Github</button>
                                     </div>
                                     <small class="text-body-secondary">... in revision</small>
                                 </div>
@@ -91,12 +112,14 @@
                             <img class="card-img-top" src="/img/code.jpg" width="100%" height="225" />
                             <div class="card-body">
                                 <h4>on the wrong side</h4>
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <p class="card-text">
+                                    A game where a race car speeds by while cars from the opposite side enter the road, with one finger you change lanes and play!
+                                </p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Play Store</button>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Online</button>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Github</button>
+                                        <button type="button" class="js-store game-data-side btn btn-sm btn-outline-secondary">Play Store</button>
+                                        <button type="button" class="js-play game-data-side btn btn-sm btn-outline-secondary">Online</button>
+                                        <button type="button" class="js-source game-data-side btn btn-sm btn-outline-secondary">Github</button>
                                     </div>
                                     <small class="text-body-secondary">... in progress</small>
                                 </div>
@@ -109,12 +132,14 @@
                             <img class="card-img-top" src="/img/code.jpg" width="100%" height="225" />
                             <div class="card-body">
                                 <h4>Stairs and Cobra</h4>
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <p class="card-text">
+                                    a platform game where the player must reach via ladders to the maximum level while snakes are always lurking!
+                                </p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Play Store</button>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Online</button>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Github</button>
+                                        <button type="button" class="js-store game-data-cobra btn btn-sm btn-outline-secondary">Play Store</button>
+                                        <button type="button" class="js-play game-data-cobra btn btn-sm btn-outline-secondary">Online</button>
+                                        <button type="button" class="js-source game-data-cobra btn btn-sm btn-outline-secondary">Github</button>
                                     </div>
                                     <small class="text-body-secondary">... in progress</small>
                                 </div>
@@ -133,9 +158,9 @@
                                 </p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">KaiOS Store</button>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Online</button>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Github</button>
+                                        <button type="button" class="js-store game-data-ladies btn btn-sm btn-outline-secondary">KaiOS Store</button>
+                                        <button type="button" class="js-play game-data-ladies btn btn-sm btn-outline-secondary">Online</button>
+                                        <button type="button" class="js-source game-data-ladies btn btn-sm btn-outline-secondary">Github</button>
                                     </div>
                                     <small class="text-body-secondary">... in revision</small>
                                 </div>
@@ -157,9 +182,7 @@
                                 <p class="card-text">Others still have more to come...</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">where?</button>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">when?</button>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">what?</button>
+                                        <button type="button" class="js-store game-data-ladies btn btn-sm btn-outline-secondary">...</button>
                                     </div>
                                     <small class="text-body-secondary">... in progress</small>
                                 </div>

@@ -100,7 +100,7 @@ $theme-colors: ("light": #f7fafc,
     }
 }
 
-header {
+header.main {
     position: fixed;
     width: 100%;
     z-index: 9999;
@@ -109,3 +109,5 @@ header {
 main {
     padding-top: 30px;
 }
+
+@import 'micromodal';
