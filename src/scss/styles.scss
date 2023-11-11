@@ -94,5 +94,18 @@ $theme-colors: ("light": #f7fafc,
 .card-mg {
     .card-text {
         min-height: 9em;
+        max-height: 9em;
+        height: 9em;
+        overflow-y: hidden;
     }
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+}
+
+main {
+    padding-top: 30px;
 }
