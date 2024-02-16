@@ -8,21 +8,32 @@ import '../scss/styles.scss';
 // Import all of Bootstrap's JS
 import * as bootstrap from 'bootstrap';
 import MicroModal from 'micromodal';
+import Mustache from 'mustache';
 
 import $ from "cash-dom";
 
-import data from './game_data';
+import { data, game_data } from './game_data';
 
 const actions = ['store', 'source', 'play', 'more'];
 
 const Controller =
 {
     last_link: null,
+    create_list: evt =>
+    {
+        for (let i = 0; i < game_data.length; i++)
+        {
+            const template = document.getElementById('game_card').innerHTML;
+            const output = Mustache.render(template, game_data[i]);
+            $('#game_content').append(output);
+            $('#more').appendTo('#game_content');
+        }
+    },
     init_ui: evt =>
     {
         // init modal and data for all actions
         MicroModal.init();
-        for(let i=0; i<actions.length; i++)
+        for (let i = 0; i < actions.length; i++)
         {
             const cur = actions[i];
             $(document).off('click', 'button.js-' + cur);
@@ -33,8 +44,8 @@ const Controller =
                 $('#modal-1-title').text(game_data.title);
                 $('#modal-1-content').text(game_data.text[cur]);
                 Controller.last_link = game_data[cur];
-                if(Controller.last_link === null) $('#continue').hide();
-                if(Controller.last_link !== null) $('#continue').show();
+                if (Controller.last_link === null) $('#continue').hide();
+                if (Controller.last_link !== null) $('#continue').show();
                 setTimeout(() =>
                 {
                     MicroModal.show('modal-1');
@@ -42,17 +53,18 @@ const Controller =
             });
         }
         // init continua callback
-            $(document).off('click', '#continue');
-            $(document).on('click', '#continue', evt =>
-            {
-                MicroModal.close('modal-1');
-                if(Controller.last_link !== null) window.open(Controller.last_link, '_blank');
-            });
+        $(document).off('click', '#continue');
+        $(document).on('click', '#continue', evt =>
+        {
+            MicroModal.close('modal-1');
+            if (Controller.last_link !== null) window.open(Controller.last_link, '_blank');
+        });
     }
 };
 
 $(function ()
 {
     $('html').addClass('dom-loaded');
+    Controller.create_list();
     Controller.init_ui();
 });
